@@ -1,0 +1,3 @@
+[submodule "mod/ae2f/err"]
+	path = mod/ae2f/err
+	url = https://github.com/ae2f/err
