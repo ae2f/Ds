@@ -1,7 +1,9 @@
-#include "./Alloc.h"
-
 #if !defined(ae2f_ds_Alloc_hpp)
 #define ae2f_ds_Alloc_hpp
+
+#include <ae2f/Pack/Beg.h>
+
+#include "./Alloc.h"
 
 namespace ae2f { namespace Ds { namespace Alloc {
 	struct xrOwner;
@@ -33,5 +35,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
 		using Linear_t = iOwner<&ae2f_ds_vAlloc_cLinear>;
 	}
 }}}
+
+#include <ae2f/Pack/End.h>
 
 #endif

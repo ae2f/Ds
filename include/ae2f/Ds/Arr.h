@@ -1,5 +1,8 @@
 #if !defined(ae2f_ds_Arr_h)
 #define ae2f_ds_Arr_h
+
+#include <ae2f/Pack/Beg.h>
+
 #include "Alloc.h"
 #include "Arr/Err.h"
 
@@ -136,5 +139,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Arr_QSort_imp(
 /// @see ae2f_ds_Alloc_cRef_Write
 /// @see ae2f_ds_Arr_QSort_imp
 #define ae2f_ds_Arr_QSort(arr, fpElCmp, elw) ae2f_ds_Arr_QSort_imp(arr, ae2f_reinterpret_cast(ae2f_ds_Arr_fpElCmp_t, fpElCmp), elw)
+
+#include <ae2f/Pack/End.h>
 
 #endif

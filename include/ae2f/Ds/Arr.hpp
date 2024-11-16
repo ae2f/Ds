@@ -5,6 +5,8 @@
 #if !defined(ae2f_ds_Arr_hpp)
 #define ae2f_ds_Arr_hpp
 
+#include <ae2f/Pack/Beg.h>
+
 #include "Alloc.hpp"
 #include <type_traits>
 
@@ -32,5 +34,7 @@ namespace Arr {
 }
 }
 }
+
+#include <ae2f/Pack/End.h>
 
 #endif

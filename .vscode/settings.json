@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "alloc.h": "c"
+        "alloc.h": "c",
+        "cast.h": "c",
+        "beg.h": "c"
     }
 }

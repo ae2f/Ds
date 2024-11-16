@@ -1,6 +1,8 @@
 #if !defined(ae2f_ds_Alloc_h)
 #define ae2f_ds_Alloc_h
 
+#include <ae2f/Pack/Beg.h>
+
 #include <ae2f/Cast.h>
 #include <ae2f/Cmp.h>
 #include <ae2f/err.h>
@@ -75,5 +77,6 @@ struct ae2f_ds_cAlloc {
 /// @see _ae2f_ds_Alloc_FndFun
 #define _ae2f_ds_Alloc_CallVoid(This, Name) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This) : ae2f_errGlob_IMP_NOT_FOUND)
 
+#include <ae2f/Pack/End.h>
 
 #endif
