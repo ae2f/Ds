@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
+if(NOT ae2f_Ds_cmake)
+set(ae2f_Ds_cmake TRUE)
 project(Ds)
 enable_testing()
 
@@ -62,3 +64,5 @@ install(FILES
 )
 
 add_subdirectory(test)
+
+endif()
