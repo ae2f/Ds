@@ -10,21 +10,25 @@ add_subdirectory(mod/ae2f/err)
 include(GNUInstallDirs)
 
 link_libraries(err)
-add_library(
-	${PROJECT_NAME}
-    ${ae2f_LIBPREFIX}
 
-    "include/ae2f/Ds/Alloc.h"
-    "include/ae2f/Ds/Alloc.hpp"
-    "src/Alloc.c"
-    "src/Alloc/Linear.c"
+if(NOT TARGET ${PROJECT_NAME})
+    add_library(
+        ${PROJECT_NAME}
+        ${ae2f_LIBPREFIX}
 
-    "include/ae2f/Ds/Arr.h"
-    "include/ae2f/Ds/Arr.hpp"
-    "src/Arr.c"
-)
+        "include/ae2f/Ds/Alloc.h"
+        "include/ae2f/Ds/Alloc.hpp"
+        "src/Alloc.c"
+        "src/Alloc/Linear.c"
 
-include_directories(include)
+        "include/ae2f/Ds/Arr.h"
+        "include/ae2f/Ds/Arr.hpp"
+        "src/Arr.c"
+    )
+
+    include_directories(include)
+    add_subdirectory(test)
+endif()
 
 # Header
 target_include_directories(${PROJECT_NAME}
@@ -63,6 +67,5 @@ install(FILES
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
 )
 
-add_subdirectory(test)
 
 endif()
