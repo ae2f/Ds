@@ -9,8 +9,8 @@ namespace ae2f { namespace Ds { namespace Alloc {
     /// # This structure owns the memory.
     /// 
     /// An interface to implement the linear array.
-    /// @see ae2f_ds_cAlloc
-    /// @see ae2f_ds_Alloc_cOwn
+    /// @see ae2f_cDsAlloc
+    /// @see ae2f_cDsAllocOwn
     /// @see ae2f::Ds::Alloc::rOwner
     struct xrOwner : public rOwner {
         public:
@@ -24,12 +24,12 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpRead_t
-        /// @see ae2f_ds_Alloc_cRef_Read
-        /// @see ae2f_ds_Alloc_cOwn_Read
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocGets_t
+        /// @see ae2f_cDsAllocRefGets
+        /// @see ae2f_cDsAllocOwnGets
         inline ae2f_err_t Read(size_t i, void* dest, size_t destlen) const noexcept {
-            return ae2f_ds_Alloc_cOwn_Read(this, i, dest, destlen);
+            return ae2f_cDsAllocOwnGets(this, i, dest, destlen);
         }
 
         /// @brief
@@ -43,12 +43,12 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpWrite_t
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn_Write
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocPuts_t
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwnPuts
         inline ae2f_err_t Write(size_t i, const void* src, size_t srclen) noexcept {
-            return ae2f_ds_Alloc_cOwn_Write(this, i, src, srclen);
+            return ae2f_cDsAllocOwnPuts(this, i, src, srclen);
         }
 
         /// @brief
@@ -60,12 +60,12 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @ref ae2f_ds_Alloc_Err_NCOPIED
         /// @exception \
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpLen_t
-        /// @see ae2f_ds_Alloc_cRef_getSize
-        /// @see ae2f_ds_Alloc_cOwn_getSize
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocLen_t
+        /// @see ae2f_cDsAllocRefGetSize
+        /// @see ae2f_cDsAllocOwnGetSize
         inline ae2f_err_t Length(size_t* lenbuff, size_t* elsizebuff) const noexcept {
-            return ae2f_ds_Alloc_cOwn_getSize(this, lenbuff, elsizebuff);
+            return ae2f_cDsAllocOwnGetSize(this, lenbuff, elsizebuff);
         }
 
         /// @warning
@@ -79,12 +79,12 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @exception \
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_errGlob_ALLOC_FAILED
-        /// @see ae2f_ds_Alloc_cOwn
-        /// @see ae2f_ds_Alloc_fpReConfig_t
-        /// @see ae2f_ds_Alloc_cOwn_ReConfig
-        /// @see ae2f_ds_Alloc_cOwn_ReSize
+        /// @see ae2f_cDsAllocOwn
+        /// @see ae2f_fpDsAllocReConfig_t
+        /// @see ae2f_cDsAllocOwnReConfig
+        /// @see ae2f_cDsAllocOwnReSize
         inline ae2f_err_t Resize(size_t bytecount) noexcept {
-            return ae2f_ds_Alloc_cOwn_ReSize(this, bytecount);
+            return ae2f_cDsAllocOwnReSize(this, bytecount);
         }
 
         /// @brief 
@@ -96,11 +96,11 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @exception \
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_errGlob_ALLOC_FAILED
-        /// @see ae2f_ds_Alloc_cOwn
-        /// @see ae2f_ds_Alloc_fpReConfig_t
-        /// @see ae2f_ds_Alloc_cOwn_ReConfig
+        /// @see ae2f_cDsAllocOwn
+        /// @see ae2f_fpDsAllocReConfig_t
+        /// @see ae2f_cDsAllocOwnReConfig
         inline ae2f_err_t ReConfig(size_t elcount, size_t elsize) {
-            return ae2f_ds_Alloc_cOwn_ReConfig(this, elcount, elsize);
+            return ae2f_cDsAllocOwnReConfig(this, elcount, elsize);
         }
 
         /// @brief 
@@ -110,12 +110,12 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @return @ref ae2f_errGlob_OK
         /// @exception \
         /// @ref ae2f_errGlob_PTR_IS_NULL
-        /// @see ae2f_ds_Alloc_cOwn
-        /// @see ae2f_ds_Alloc_fpDel_t
-        /// @see ae2f_ds_Alloc_cOwn_Del
+        /// @see ae2f_cDsAllocOwn
+        /// @see ae2f_fpDsAllocDel_t
+        /// @see ae2f_cDsAllocOwnDel
         /// @see ae2f_errLast
         inline ~xrOwner() noexcept {
-            ae2f_errLast |= (ae2f_ds_Alloc_cOwn_Del(this));
+            ae2f_errLast |= (ae2f_cDsAllocOwnDel(this));
         }
 
         /// @brief 
@@ -126,15 +126,15 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @exception \
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_errGlob_ALLOC_FAILED
-        /// @see ae2f_ds_Alloc_cRef_getSize
-        /// @see ae2f_ds_Alloc_cRef_Read
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn
-        /// @see ae2f_ds_Alloc_cOwn_ReConfig
-        /// @see ae2f_ds_Alloc_cOwn_Cpy_imp
-        /// @see ae2f_ds_Alloc_cOwn_Cpy
+        /// @see ae2f_cDsAllocRefGetSize
+        /// @see ae2f_cDsAllocRefGets
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwn
+        /// @see ae2f_cDsAllocOwnReConfig
+        /// @see ae2f_cDsAllocOwnCpy_imp
+        /// @see ae2f_cDsAllocOwnCpy
         inline ae2f_err_t Copy(const rRefer& src) noexcept {
-            return ae2f_ds_Alloc_cOwn_Cpy(this, &src);
+            return ae2f_cDsAllocOwnCpy(this, &src);
         }
 
         /// @brief 
@@ -145,15 +145,15 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @exception \
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_errGlob_ALLOC_FAILED
-        /// @see ae2f_ds_Alloc_cRef_getSize
-        /// @see ae2f_ds_Alloc_cRef_Read
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn
-        /// @see ae2f_ds_Alloc_cOwn_ReConfig
-        /// @see ae2f_ds_Alloc_cOwn_Cpy_imp
-        /// @see ae2f_ds_Alloc_cOwn_Cpy
+        /// @see ae2f_cDsAllocRefGetSize
+        /// @see ae2f_cDsAllocRefGets
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwn
+        /// @see ae2f_cDsAllocOwnReConfig
+        /// @see ae2f_cDsAllocOwnCpy_imp
+        /// @see ae2f_cDsAllocOwnCpy
         inline ae2f_err_t Copy(const rRefer&& src) noexcept {
-            return ae2f_ds_Alloc_cOwn_Cpy(this, &src);
+            return ae2f_cDsAllocOwnCpy(this, &src);
         }
 
         /// @brief 
@@ -168,13 +168,13 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @exception  \
         /// @ref ae2f_ds_Alloc_Err_FPIMPNULL  \n
         /// @ref ae2f_errGlob_PTR_IS_NULL
-        /// @see ae2f_ds_Alloc_cOwn
+        /// @see ae2f_cDsAllocOwn
         inline xrOwner(
             ae2f_err_t* perr,
-            const ae2f_ds_vAlloc* imp
+            const ae2f_vDsAlloc* imp
         ) noexcept : rOwner() {
             perr = perr ? perr : &ae2f_errLast;
-            *perr |= ae2f_ds_Alloc_cOwn_Init(this, imp);
+            *perr |= ae2f_cDsAllocOwn_Init(this, imp);
         }
     };
 
@@ -184,10 +184,10 @@ namespace ae2f { namespace Ds { namespace Alloc {
     /// An interface to implement the linear array.
     /// @tparam __imp
     /// Function implementations set.
-    /// @see ae2f_ds_cAlloc
-    /// @see ae2f_ds_Alloc_cOwn
+    /// @see ae2f_cDsAlloc
+    /// @see ae2f_cDsAllocOwn
     /// @see ae2f::Ds::Alloc::rOwner
-    template<const ae2f_ds_vAlloc* __imp>
+    template<const ae2f_vDsAlloc* __imp>
     struct iOwner : public xrOwner, public vfDef<__imp> {
         /// @brief 
         ///	Initialises the pointer. \n
@@ -201,7 +201,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @exception  \
         /// @ref ae2f_ds_Alloc_Err_FPIMPNULL  \n
         /// @ref ae2f_errGlob_PTR_IS_NULL
-        /// @see ae2f_ds_Alloc_cOwn
+        /// @see ae2f_cDsAllocOwn
         /// @see ae2f::Ds::Alloc::xrOwner::xrOwner
         inline iOwner(
             ae2f_err_t* perr = 0

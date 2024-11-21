@@ -11,9 +11,9 @@ namespace ae2f { namespace Ds { namespace Alloc {
 	/// @brief 
 	/// @tparam __imp 
 	/// @see ae2f::Ds::Alloc::iOwner
-	template<const ae2f_ds_vAlloc* __imp>
+	template<const ae2f_vDsAlloc* __imp>
 	struct vfDef {
-		static constexpr ae2f_ds_vAlloc* ___vRef() noexcept { return __imp; }
+		static constexpr ae2f_vDsAlloc* ___vRef() noexcept { return __imp; }
 	};
 }}}
 
@@ -23,7 +23,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
 
 namespace ae2f { namespace Ds { namespace Alloc {
 
-	constexpr cRefer::cRefer(const xrOwner& r) noexcept : cRefer(ae2f_ds_Alloc_cRef_Mk(&r)) {}
+	constexpr cRefer::cRefer(const xrOwner& r) noexcept : cRefer(ae2f_cDsAllocRefMk(&r)) {}
 
 	/// @brief 
 	/// Pre-defined implementations of @ref ae2f::Ds::Alloc::iOwner
@@ -31,8 +31,8 @@ namespace ae2f { namespace Ds { namespace Alloc {
 		/// @brief
 		/// Each elements will be physically linear.
 		/// @see ae2f::Ds::Alloc::iOwner
-		/// @see ae2f_ds_vAlloc_cLinear
-		using Linear_t = iOwner<&ae2f_ds_vAlloc_cLinear>;
+		/// @see ae2f_vDsAllocLinear_imp
+		using Linear_t = iOwner<&ae2f_vDsAllocLinear_imp>;
 	}
 }}}
 

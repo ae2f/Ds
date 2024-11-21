@@ -7,22 +7,22 @@
 namespace ae2f { namespace Ds { namespace Alloc {
 
     /// @brief Structure for virtual function pointer.
-    /// @see ae2f_ds_vAlloc
-    using vf = ae2f_ds_vAlloc;
+    /// @see ae2f_vDsAlloc
+    using vf = ae2f_vDsAlloc;
 
     /// @brief
     /// # This structure does not own the memory.
     /// 
     /// An interface to implement the linear array.
-    /// @see ae2f_ds_cAlloc
-    /// @see ae2f_ds_Alloc_cRef
-    using rRefer = ae2f_ds_Alloc_cRef;
+    /// @see ae2f_cDsAlloc
+    /// @see ae2f_cDsAllocRef
+    using rRefer = ae2f_cDsAllocRef;
 
     /// @brief
     /// # This structure owns the memory.
     /// 
     /// An interface to implement the linear array.
-    /// @see ae2f_ds_cAlloc
-    /// @see ae2f_ds_Alloc_cOwn
-    using rOwner = ae2f_ds_Alloc_cOwn;
+    /// @see ae2f_cDsAlloc
+    /// @see ae2f_cDsAllocOwn
+    using rOwner = ae2f_cDsAllocOwn;
 }}}

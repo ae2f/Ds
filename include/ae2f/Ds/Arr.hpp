@@ -20,7 +20,7 @@ namespace ae2f {
 namespace Ds {
 namespace Arr {
 
-    template<typename T, const ae2f_ds_vAlloc* __imp>
+    template<typename T, const ae2f_vDsAlloc* __imp>
     struct iOwner : public xrOwner<T>, public Alloc::vfDef<__imp> {
         inline iOwner(
             ae2f_err_t* perr = 0
@@ -29,7 +29,7 @@ namespace Arr {
 
     namespace cOwner {
         template<typename T>
-        using Linear_t = iOwner<T, &ae2f_ds_vAlloc_cLinear>;
+        using Linear_t = iOwner<T, &ae2f_vDsAllocLinear_imp>;
     }
 }
 }

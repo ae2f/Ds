@@ -4,9 +4,9 @@
 /// Few definitions may lack.
 
 /// @brief
-/// [imp] from ae2f_ds_Alloc_cOwn_Init was nullptr.
+/// [imp] from ae2f_cDsAllocOwn_Init was nullptr.
 /// @see 
-/// ae2f_ds_Alloc_cOwn_Init
+/// ae2f_cDsAllocOwn_Init
 /// @return
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_PTR_IS_NULL
@@ -18,7 +18,7 @@
 /// One of [buff], [one] was null.
 /// Data was not be copied either to [buff] or [one].
 /// Operation has done gracefully.
-/// @see ae2f_ds_Alloc_cRef_getSize 
+/// @see ae2f_cDsAllocRefGetSize 
 /// @return
 /// @ref ae2f_errGlob_DONE_HOWEV \n
 /// @ref ae2f_errGlob_PTR_IS_NULL

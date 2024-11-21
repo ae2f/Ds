@@ -35,10 +35,10 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpRead_t
-        /// @see ae2f_ds_Alloc_cRef_Read
-        /// @see ae2f_ds_Alloc_cOwn_Read
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocGets_t
+        /// @see ae2f_cDsAllocRefGets
+        /// @see ae2f_cDsAllocOwnGets
         /// @see ae2f::Ds::Alloc::xrOwner::Read
         inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = 0) const noexcept {
             if(!perr) perr = &ae2f_errLast;
@@ -64,10 +64,10 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpWrite_t
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn_Write
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocPuts_t
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwnPuts
         /// @see ae2f::Ds::Alloc::xrOwner::Write
         inline ae2f_err_t Write(size_t idx, const typename _f::El_t& el) noexcept {
             return Alloc::xrOwner::Write(
@@ -87,10 +87,10 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpWrite_t
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn_Write
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocPuts_t
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwnPuts
         /// @see ae2f::Ds::Alloc::xrOwner::Write
         inline ae2f_err_t Write(size_t idx, const typename _f::El_t&& el) noexcept {
             return Alloc::xrOwner::Write(
@@ -121,7 +121,7 @@ namespace ae2f { namespace Ds { namespace Arr {
 
         inline __Owner(
             ae2f_err_t* perr,
-            const ae2f_ds_vAlloc* imp
+            const ae2f_vDsAlloc* imp
         ) : Alloc::xrOwner(perr, imp) {}
     };
 
@@ -156,10 +156,10 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID \n
         /// @ref eRef::EL_NON_VALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpRead_t
-        /// @see ae2f_ds_Alloc_cRef_Read
-        /// @see ae2f_ds_Alloc_cOwn_Read
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocGets_t
+        /// @see ae2f_cDsAllocRefGets
+        /// @see ae2f_cDsAllocOwnGets
         /// @see ae2f::Ds::Alloc::xrOwner::Read
         inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = 0) const noexcept {
             if(!perr) perr = &ae2f_errLast;
@@ -192,10 +192,10 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpWrite_t
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn_Write
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocPuts_t
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwnPuts
         /// @see ae2f::Ds::Alloc::xrOwner::Write
         template<typename... Args>
         inline ae2f_err_t Write(size_t idx, Args&& ...args) noexcept {
@@ -233,10 +233,10 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
         /// @ref ae2f_errGlob_PTR_IS_NULL \n
         /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-        /// @see ae2f_ds_Alloc_cRef
-        /// @see ae2f_ds_Alloc_fpWrite_t
-        /// @see ae2f_ds_Alloc_cRef_Write
-        /// @see ae2f_ds_Alloc_cOwn_Write
+        /// @see ae2f_cDsAllocRef
+        /// @see ae2f_fpDsAllocPuts_t
+        /// @see ae2f_cDsAllocRefPuts
+        /// @see ae2f_cDsAllocOwnPuts
         /// @see ae2f::Ds::Alloc::xrOwner::Write
         inline ae2f_err_t Write(size_t idx) noexcept {
             if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
@@ -311,7 +311,7 @@ namespace ae2f { namespace Ds { namespace Arr {
 
         inline __Owner(
             ae2f_err_t* perr,
-            const ae2f_ds_vAlloc* imp
+            const ae2f_vDsAlloc* imp
         ) : Alloc::xrOwner(perr, imp) {}
     };
 

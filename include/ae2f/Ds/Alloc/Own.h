@@ -5,8 +5,8 @@
 
 /// @brief
 /// # This structure owns the memory.
-/// @see ae2f_ds_cAlloc
-#define ae2f_ds_Alloc_cOwn ae2f_ds_cAlloc
+/// @see ae2f_cDsAlloc
+#define ae2f_cDsAllocOwn ae2f_cDsAlloc
 
 #pragma region Virtual Functions
 
@@ -16,9 +16,9 @@
 /// @return @ref ae2f_errGlob_OK
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL
-/// @see ae2f_ds_Alloc_cOwn
-typedef ae2f_err_t(*ae2f_ds_Alloc_fpDel_t)(
-    ae2f_struct ae2f_ds_Alloc_cOwn* _this
+/// @see ae2f_cDsAllocOwn
+typedef ae2f_err_t(*ae2f_fpDsAllocDel_t)(
+    ae2f_struct ae2f_cDsAllocOwn* _this
 );
 
 /// @brief 
@@ -31,9 +31,9 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpDel_t)(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_ALLOC_FAILED
-/// @see ae2f_ds_Alloc_cOwn
-typedef ae2f_err_t(*ae2f_ds_Alloc_fpReConfig_t)(
-    ae2f_struct ae2f_ds_Alloc_cOwn* _this, 
+/// @see ae2f_cDsAllocOwn
+typedef ae2f_err_t(*ae2f_fpDsAllocReConfig_t)(
+    ae2f_struct ae2f_cDsAllocOwn* _this, 
     size_t elcount, 
     size_t elsize
 );
@@ -56,10 +56,10 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpReConfig_t)(
 /// @exception  \
 /// @ref ae2f_ds_Alloc_Err_FPIMPNULL  \n
 /// @ref ae2f_errGlob_PTR_IS_NULL
-/// @see ae2f_ds_Alloc_cOwn
-ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Init(
-	ae2f_struct ae2f_ds_Alloc_cOwn* This, 
-	const ae2f_struct ae2f_ds_vAlloc* imp
+/// @see ae2f_cDsAllocOwn
+ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsAllocOwn_Init(
+	ae2f_struct ae2f_cDsAllocOwn* This, 
+	const ae2f_struct ae2f_vDsAlloc* imp
 );
 
 /// @brief 
@@ -73,9 +73,9 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Init(
 /// @return @ref ae2f_errGlob_OK
 /// @exception  \
 /// @ref ae2f_errGlob_PTR_IS_NULL
-/// @see ae2f_ds_Alloc_cOwn
-/// @see ae2f_ds_Alloc_cOwn_Init
-#define ae2f_ds_Alloc_cOwn_InitAuto(This) ae2f_ds_Alloc_cOwn_Init(This, &ae2f_ds_vAlloc_cLinear)
+/// @see ae2f_cDsAllocOwn
+/// @see ae2f_cDsAllocOwn_Init
+#define ae2f_cDsAllocOwn_InitAuto(This) ae2f_cDsAllocOwn_Init(This, &ae2f_vDsAllocLinear_imp)
 
 /// @brief 
 /// Allocates the memory.
@@ -86,14 +86,14 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Init(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_ALLOC_FAILED
-/// @see ae2f_ds_Alloc_cRef_getSize
-/// @see ae2f_ds_Alloc_cRef_Read
-/// @see ae2f_ds_Alloc_cRef_Write
-/// @see ae2f_ds_Alloc_cOwn
-/// @see ae2f_ds_Alloc_cOwn_ReConfig
-ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
-	ae2f_struct ae2f_ds_Alloc_cOwn* This, 
-	const ae2f_struct ae2f_ds_cAlloc* Source
+/// @see ae2f_cDsAllocRefGetSize
+/// @see ae2f_cDsAllocRefGets
+/// @see ae2f_cDsAllocRefPuts
+/// @see ae2f_cDsAllocOwn
+/// @see ae2f_cDsAllocOwnReConfig
+ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsAllocOwnCpy_imp(
+	ae2f_struct ae2f_cDsAllocOwn* This, 
+	const ae2f_struct ae2f_cDsAlloc* Source
 );
 
 /// @brief 
@@ -105,13 +105,13 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_ALLOC_FAILED
-/// @see ae2f_ds_Alloc_cRef_getSize
-/// @see ae2f_ds_Alloc_cRef_Read
-/// @see ae2f_ds_Alloc_cRef_Write
-/// @see ae2f_ds_Alloc_cOwn
-/// @see ae2f_ds_Alloc_cOwn_ReConfig
-/// @see ae2f_ds_Alloc_cOwn_Cpy_imp
-#define ae2f_ds_Alloc_cOwn_Cpy(This, Source) ae2f_ds_Alloc_cOwn_Cpy_imp(This, ae2f_reinterpret_cast(const ae2f_struct ae2f_ds_cAlloc*, Source))
+/// @see ae2f_cDsAllocRefGetSize
+/// @see ae2f_cDsAllocRefGets
+/// @see ae2f_cDsAllocRefPuts
+/// @see ae2f_cDsAllocOwn
+/// @see ae2f_cDsAllocOwnReConfig
+/// @see ae2f_cDsAllocOwnCpy_imp
+#define ae2f_cDsAllocOwnCpy(This, Source) ae2f_cDsAllocOwnCpy_imp(This, ae2f_reinterpret_cast(const ae2f_struct ae2f_cDsAlloc*, Source))
 
 #pragma endregion
 
@@ -128,10 +128,10 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @ref ae2f_ds_Alloc_Err_NCOPIED
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
-/// @see ae2f_ds_Alloc_cRef
-/// @see ae2f_ds_Alloc_fpLen_t
-/// @see ae2f_ds_Alloc_cRef_getSize
-#define ae2f_ds_Alloc_cOwn_getSize ae2f_ds_Alloc_cRef_getSize
+/// @see ae2f_cDsAllocRef
+/// @see ae2f_fpDsAllocLen_t
+/// @see ae2f_cDsAllocRefGetSize
+#define ae2f_cDsAllocOwnGetSize ae2f_cDsAllocRefGetSize
 
 /// @brief
 /// Gets data from a class.
@@ -144,10 +144,10 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-/// @see ae2f_ds_Alloc_cRef
-/// @see ae2f_ds_Alloc_fpRead_t
-/// @see ae2f_ds_Alloc_cRef_Read
-#define ae2f_ds_Alloc_cOwn_Read ae2f_ds_Alloc_cRef_Read
+/// @see ae2f_cDsAllocRef
+/// @see ae2f_fpDsAllocGets_t
+/// @see ae2f_cDsAllocRefGets
+#define ae2f_cDsAllocOwnGets ae2f_cDsAllocRefGets
 
 /// @brief
 /// Sets data to a class.
@@ -161,10 +161,10 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-/// @see ae2f_ds_Alloc_cRef
-/// @see ae2f_ds_Alloc_fpWrite_t
-/// @see ae2f_ds_Alloc_cRef_Write
-#define ae2f_ds_Alloc_cOwn_Write ae2f_ds_Alloc_cRef_Write
+/// @see ae2f_cDsAllocRef
+/// @see ae2f_fpDsAllocPuts_t
+/// @see ae2f_cDsAllocRefPuts
+#define ae2f_cDsAllocOwnPuts ae2f_cDsAllocRefPuts
 
 /// @brief 
 /// Frees the memory of [This].
@@ -172,9 +172,9 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @return @ref ae2f_errGlob_OK
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL
-/// @see ae2f_ds_Alloc_cOwn
-/// @see ae2f_ds_Alloc_fpDel_t
-#define ae2f_ds_Alloc_cOwn_Del(This) _ae2f_ds_Alloc_CallVoid(This, Del)
+/// @see ae2f_cDsAllocOwn
+/// @see ae2f_fpDsAllocDel_t
+#define ae2f_cDsAllocOwnDel(This) _ae2f_DsAllocCallVoid(This, Del)
 
 /// @brief 
 /// Resizes the memory of [This]. \n
@@ -186,9 +186,9 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_ALLOC_FAILED
-/// @see ae2f_ds_Alloc_cOwn
-/// @see ae2f_ds_Alloc_fpReConfig_t
-#define ae2f_ds_Alloc_cOwn_ReConfig(This, elcount, elsize) _ae2f_ds_Alloc_Call(This, ReConfig, elcount, elsize)
+/// @see ae2f_cDsAllocOwn
+/// @see ae2f_fpDsAllocReConfig_t
+#define ae2f_cDsAllocOwnReConfig(This, elcount, elsize) _ae2f_DsAllocCall(This, ReConfig, elcount, elsize)
 
 /// @warning
 /// This operation may not be efficient under certain implements.
@@ -202,9 +202,9 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Cpy_imp(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_ALLOC_FAILED
-/// @see ae2f_ds_Alloc_cOwn
-/// @see ae2f_ds_Alloc_fpReConfig_t
-/// @see ae2f_ds_Alloc_cOwn_ReConfig
-#define ae2f_ds_Alloc_cOwn_ReSize(This, bytecount) ae2f_ds_Alloc_cOwn_ReConfig(This, bytecount, 1)
+/// @see ae2f_cDsAllocOwn
+/// @see ae2f_fpDsAllocReConfig_t
+/// @see ae2f_cDsAllocOwnReConfig
+#define ae2f_cDsAllocOwnReSize(This, bytecount) ae2f_cDsAllocOwnReConfig(This, bytecount, 1)
 
 #pragma endregion

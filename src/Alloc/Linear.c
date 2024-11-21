@@ -5,7 +5,7 @@
 #define LEN_GETTER (*((size_t*)This->data))
 
 
-static ae2f_err_t Len(const ae2f_struct ae2f_ds_cAlloc* This, size_t* buff, size_t* one) {
+static ae2f_err_t Len(const ae2f_struct ae2f_cDsAlloc* This, size_t* buff, size_t* one) {
 	ae2f_err_t err = ae2f_errGlob_OK; 
 	size_t sz[1] = {0};
 
@@ -21,7 +21,7 @@ static ae2f_err_t Len(const ae2f_struct ae2f_ds_cAlloc* This, size_t* buff, size
 	else err |= ae2f_ds_Alloc_Err_NCOPIED;
 	return err;
 }
-static ae2f_err_t Read(const ae2f_struct ae2f_ds_cAlloc* This, size_t idx, void* buff, size_t bufflen) {
+static ae2f_err_t Read(const ae2f_struct ae2f_cDsAlloc* This, size_t idx, void* buff, size_t bufflen) {
 	if (!(This && This->data))
 		return ae2f_errGlob_PTR_IS_NULL;
 
@@ -33,7 +33,7 @@ static ae2f_err_t Read(const ae2f_struct ae2f_ds_cAlloc* This, size_t idx, void*
 
 	return ae2f_errGlob_OK;
 }
-static ae2f_err_t Write(ae2f_struct ae2f_ds_cAlloc* This, size_t idx, const void* buff, size_t bufflen) {
+static ae2f_err_t Write(ae2f_struct ae2f_cDsAlloc* This, size_t idx, const void* buff, size_t bufflen) {
 	if (!(This && This->data))
 		return ae2f_errGlob_PTR_IS_NULL;
 
@@ -44,7 +44,7 @@ static ae2f_err_t Write(ae2f_struct ae2f_ds_cAlloc* This, size_t idx, const void
 
 	return ae2f_errGlob_OK;
 }
-static ae2f_err_t Make(ae2f_struct ae2f_ds_cAlloc* This, size_t l, size_t ellen) {
+static ae2f_err_t Make(ae2f_struct ae2f_cDsAlloc* This, size_t l, size_t ellen) {
 	if (!This)
 		return ae2f_errGlob_PTR_IS_NULL;
 
@@ -63,7 +63,7 @@ static ae2f_err_t Make(ae2f_struct ae2f_ds_cAlloc* This, size_t l, size_t ellen)
 #undef i
 	return ae2f_errGlob_OK;
 }
-static ae2f_err_t Del(ae2f_struct ae2f_ds_cAlloc* This) {
+static ae2f_err_t Del(ae2f_struct ae2f_cDsAlloc* This) {
 	if (!This)
 		return ae2f_errGlob_PTR_IS_NULL;
 
@@ -75,7 +75,7 @@ static ae2f_err_t Del(ae2f_struct ae2f_ds_cAlloc* This) {
 	return ae2f_errGlob_OK;
 }
 
-ae2f_SHAREDEXPORT const struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear = 
+ae2f_SHAREDEXPORT const struct ae2f_vDsAlloc ae2f_vDsAllocLinear_imp = 
 { 
 	.GetSize = Len, 
 	.Read = Read, 

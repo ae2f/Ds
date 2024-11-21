@@ -53,10 +53,10 @@ typedef ae2f_ds_Arr_CmpRet_t(*ae2f_ds_Arr_fpElCmp_t)(const void* l, const void* 
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_ALLOC_FAILED \n 
-/// @see ae2f_ds_Alloc_cRef_getSize
-/// @see ae2f_ds_Alloc_cRef_Read
+/// @see ae2f_cDsAllocRefGetSize
+/// @see ae2f_cDsAllocRefGets
 ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Arr_BSearch_imp(
-	const ae2f_struct ae2f_ds_cAlloc* arr,
+	const ae2f_struct ae2f_cDsAlloc* arr,
 	const void* wanted,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t* out,
@@ -88,8 +88,8 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Arr_BSearch_imp(
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_ALLOC_FAILED \n
 /// @ref ae2f_errGlob_WRONG_OPERATION 
-/// @see ae2f_ds_Alloc_cRef_getSize
-/// @see ae2f_ds_Alloc_cRef_Read
+/// @see ae2f_cDsAllocRefGetSize
+/// @see ae2f_cDsAllocRefGets
 /// @see ae2f_ds_Arr_BSearch_imp
 #define ae2f_ds_Arr_BSearch(arr, wanted, fpElCmp, retidx, elw) ae2f_ds_Arr_BSearch_imp(arr, wanted, ae2f_reinterpret_cast(ae2f_ds_Arr_fpElCmp_t, fpElCmp), retidx, elw)
 
@@ -109,11 +109,11 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Arr_BSearch_imp(
 /// @exception \
 /// @ref ae2f_errGlob_ALLOC_FAILED \n
 /// @ref ae2f_errGlob_IMP_NOT_FOUND
-/// @see ae2f_ds_Alloc_cRef_getSize
-/// @see ae2f_ds_Alloc_cRef_Read
-/// @see ae2f_ds_Alloc_cRef_Write
+/// @see ae2f_cDsAllocRefGetSize
+/// @see ae2f_cDsAllocRefGets
+/// @see ae2f_cDsAllocRefPuts
 ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Arr_QSort_imp(
-	ae2f_struct ae2f_ds_cAlloc* arr,
+	ae2f_struct ae2f_cDsAlloc* arr,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t elsize
 );
@@ -134,9 +134,9 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_ds_Arr_QSort_imp(
 /// @exception \
 /// @ref ae2f_errGlob_ALLOC_FAILED \n
 /// @ref ae2f_errGlob_IMP_NOT_FOUND
-/// @see ae2f_ds_Alloc_cRef_getSize
-/// @see ae2f_ds_Alloc_cRef_Read
-/// @see ae2f_ds_Alloc_cRef_Write
+/// @see ae2f_cDsAllocRefGetSize
+/// @see ae2f_cDsAllocRefGets
+/// @see ae2f_cDsAllocRefPuts
 /// @see ae2f_ds_Arr_QSort_imp
 #define ae2f_ds_Arr_QSort(arr, fpElCmp, elw) ae2f_ds_Arr_QSort_imp(arr, ae2f_reinterpret_cast(ae2f_ds_Arr_fpElCmp_t, fpElCmp), elw)
 

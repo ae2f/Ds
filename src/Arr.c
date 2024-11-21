@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 ae2f_SHAREDEXPORT ae2f_err_t ae2f_ds_Arr_BSearch_imp(
-	const struct ae2f_ds_cAlloc* arr,
+	const struct ae2f_cDsAlloc* arr,
 	const void* wanted,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t* out,
@@ -15,7 +15,7 @@ ae2f_SHAREDEXPORT ae2f_err_t ae2f_ds_Arr_BSearch_imp(
 	ae2f_err_t err; 
 	size_t arr_r, arr_l = 0, elsize;
 	
-	if ((err = ae2f_ds_Alloc_cRef_getSize(arr, &arr_r, &elsize))) 
+	if ((err = ae2f_cDsAllocRefGetSize(arr, &arr_r, &elsize))) 
 		return err;
 
 	if(_elsize) {
@@ -38,7 +38,7 @@ ae2f_SHAREDEXPORT ae2f_err_t ae2f_ds_Arr_BSearch_imp(
 
 	while (arr_l <= arr_r) {
 #define idx (arr_l + ((arr_r - arr_l) >> 1))
-		if ((err = ae2f_ds_Alloc_cRef_Read(arr, idx * elsize, el, elsize))) {
+		if ((err = ae2f_cDsAllocRefGets(arr, idx * elsize, el, elsize))) {
 			memdump(err);
 		}
 
@@ -63,11 +63,11 @@ ae2f_SHAREDEXPORT ae2f_err_t ae2f_ds_Arr_BSearch_imp(
 }
 
 #pragma region qsort
-#define __Read(i, buff) ae2f_ds_Alloc_cRef_Read(arr, (i) * elsize, buff, elsize)
-#define __Write(i, buff) ae2f_ds_Alloc_cRef_Write(arr, (i) * elsize, buff, elsize)
+#define __Read(i, buff) ae2f_cDsAllocRefGets(arr, (i) * elsize, buff, elsize)
+#define __Write(i, buff) ae2f_cDsAllocRefPuts(arr, (i) * elsize, buff, elsize)
 
 static ae2f_err_t imp_ae2f_swap(
-	struct ae2f_ds_cAlloc* arr,
+	struct ae2f_cDsAlloc* arr,
 	size_t elsize,
 	void* tmpA,
 	void* tmpB,
@@ -92,7 +92,7 @@ static ae2f_err_t imp_ae2f_swap(
 }
 
 static ae2f_err_t imp_ae2f_partition(
-	struct ae2f_ds_cAlloc* arr,
+	struct ae2f_cDsAlloc* arr,
 	size_t elsize,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	void* tempel,
@@ -135,7 +135,7 @@ static ae2f_err_t imp_ae2f_partition(
 #define inv_idx ((size_t)-1)
 
 struct __ {
-	struct ae2f_ds_cAlloc* arr;
+	struct ae2f_cDsAlloc* arr;
 	size_t elsize;
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp;
 	void* tempel;
@@ -171,7 +171,7 @@ static ae2f_err_t imp_ae2f_Qsort(
 }
 
 ae2f_SHAREDEXPORT ae2f_err_t ae2f_ds_Arr_QSort_imp(
-	struct ae2f_ds_cAlloc* arr,
+	struct ae2f_cDsAlloc* arr,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t _elsize
 ) {
@@ -179,7 +179,7 @@ ae2f_SHAREDEXPORT ae2f_err_t ae2f_ds_Arr_QSort_imp(
 
 	size_t len, elsize;
 	ae2f_err_t rtn;
-	if (rtn = ae2f_ds_Alloc_cRef_getSize(arr, &len, &elsize))
+	if (rtn = ae2f_cDsAllocRefGetSize(arr, &len, &elsize))
 		return rtn;
 	struct __ prm = {
 		.arr = arr,

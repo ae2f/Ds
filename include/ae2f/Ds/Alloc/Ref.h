@@ -7,8 +7,8 @@
 /// # This structure does not own the memory.
 /// 
 /// An interface to implement the linear array.
-/// @see ae2f_ds_cAlloc
-#define ae2f_ds_Alloc_cRef ae2f_ds_cAlloc
+/// @see ae2f_cDsAlloc
+#define ae2f_cDsAllocRef ae2f_cDsAlloc
 
 #pragma region functions pointers
 
@@ -22,9 +22,9 @@
 /// @ref ae2f_ds_Alloc_Err_NCOPIED
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
-/// @see ae2f_ds_Alloc_cRef
-typedef ae2f_err_t(*ae2f_ds_Alloc_fpLen_t)(
-	const ae2f_struct ae2f_ds_Alloc_cRef* _this,
+/// @see ae2f_cDsAllocRef
+typedef ae2f_err_t(*ae2f_fpDsAllocLen_t)(
+	const ae2f_struct ae2f_cDsAllocRef* _this,
 	size_t* pSize,
 	size_t* pel
 );
@@ -39,9 +39,9 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpLen_t)(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-/// @see ae2f_ds_Alloc_cRef
-typedef ae2f_err_t(*ae2f_ds_Alloc_fpRead_t)(
-	const ae2f_struct ae2f_ds_Alloc_cRef* _this, 
+/// @see ae2f_cDsAllocRef
+typedef ae2f_err_t(*ae2f_fpDsAllocGets_t)(
+	const ae2f_struct ae2f_cDsAllocRef* _this, 
 	size_t Index, 
 	void* lpBuff, 
 	size_t Buff_size
@@ -58,9 +58,9 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpRead_t)(
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-/// @see ae2f_ds_Alloc_cRef
-typedef ae2f_err_t(*ae2f_ds_Alloc_fpWrite_t)(
-	ae2f_struct ae2f_ds_Alloc_cRef* _this, 
+/// @see ae2f_cDsAllocRef
+typedef ae2f_err_t(*ae2f_fpDsAllocPuts_t)(
+	ae2f_struct ae2f_cDsAllocRef* _this, 
 	size_t Index, 
 	const void* lpBuff,
 	size_t Buff_size
@@ -71,12 +71,12 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpWrite_t)(
 
 /// @brief
 /// Initialises the class for reffering.
-/// @param This	{const ae2f_ds_cAlloc*}
-/// @returns {const ae2f_ds_Alloc_cRef} This initiated structure.
+/// @param This	{const ae2f_cDsAlloc*}
+/// @returns {const ae2f_cDsAllocRef} This initiated structure.
 /// @warning
 /// You need to suggest that returning value of this does not own the memory.
-/// @see ae2f_ds_Alloc_cRef
-#define ae2f_ds_Alloc_cRef_Mk(This) ae2f_RecordMk(ae2f_struct ae2f_ds_Alloc_cRef, (This)->data, (This)->v)
+/// @see ae2f_cDsAllocRef
+#define ae2f_cDsAllocRefMk(This) ae2f_RecordMk(ae2f_struct ae2f_cDsAllocRef, (This)->data, (This)->v)
 
 
 #pragma region Methods
@@ -91,9 +91,9 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpWrite_t)(
 /// @ref ae2f_ds_Alloc_Err_NCOPIED
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
-/// @see ae2f_ds_Alloc_cRef
-/// @see ae2f_ds_Alloc_fpLen_t
-#define ae2f_ds_Alloc_cRef_getSize(This, sizebuff, elsizebuff) _ae2f_ds_Alloc_Call(This, GetSize, sizebuff, elsizebuff)
+/// @see ae2f_cDsAllocRef
+/// @see ae2f_fpDsAllocLen_t
+#define ae2f_cDsAllocRefGetSize(This, sizebuff, elsizebuff) _ae2f_DsAllocCall(This, GetSize, sizebuff, elsizebuff)
 
 /// @brief
 /// Gets data from a class.
@@ -106,9 +106,9 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpWrite_t)(
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-/// @see ae2f_ds_Alloc_cRef
-/// @see ae2f_ds_Alloc_fpRead_t
-#define ae2f_ds_Alloc_cRef_Read(This, idx, buff, elsize) _ae2f_ds_Alloc_Call(This, Read, idx, buff, elsize)
+/// @see ae2f_cDsAllocRef
+/// @see ae2f_fpDsAllocGets_t
+#define ae2f_cDsAllocRefGets(This, idx, buff, elsize) _ae2f_DsAllocCall(This, Read, idx, buff, elsize)
 
 /// @brief
 /// Sets data to a class.
@@ -122,8 +122,8 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpWrite_t)(
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_ds_Alloc_Err_IDX_INVALID
-/// @see ae2f_ds_Alloc_cRef
-/// @see ae2f_ds_Alloc_fpWrite_t
-#define ae2f_ds_Alloc_cRef_Write(This, idx, src, srcsize) _ae2f_ds_Alloc_Call(This, Write, idx, src, srcsize)
+/// @see ae2f_cDsAllocRef
+/// @see ae2f_fpDsAllocPuts_t
+#define ae2f_cDsAllocRefPuts(This, idx, src, srcsize) _ae2f_DsAllocCall(This, Write, idx, src, srcsize)
 
 #pragma endregion
