@@ -29,7 +29,7 @@ int a::_d = 0;
 static int Test0() {
     ae2f::Ds::Arr::cOwner::Linear_t<a> _a;
 
-    std::cout << "Linear: " << (int)(_a.v == &ae2f_ds_vAlloc_cLinear) << "\n";
+    std::cout << "Linear: " << (int)(_a.v == &ae2f_vDsAllocLinear_imp) << "\n";
 
     std::cout << "Resize: " << (int)_a.Resize(10) << "\n";
     size_t d, df;

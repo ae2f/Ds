@@ -1,7 +1,5 @@
 /// @file
 /// Helper header for ae2f/Ds/Arr.hpp
-/// @warning 
-/// This file has lack of definitions.
 
 namespace ae2f { namespace Ds { namespace Arr {
     /// @warning
@@ -15,8 +13,8 @@ namespace ae2f { namespace Ds { namespace Arr {
     /// @tparam NIsTrivial 
     /// Whether [T] is trivial or not. \n
     /// 0 means [T] is not trivial, which means it has a custom constructor - destructor.
-    /// @see ae2f_ds_cAlloc
-    /// @see ae2f_ds_Alloc_cRef
+    /// @see ae2f_cDsAlloc
+    /// @see ae2f_cDsAllocRef
     /// @see ae2f::Ds::Alloc::rRefer
     template<typename T, bool NIsTrivial>
     struct __Refer {};
@@ -32,8 +30,8 @@ namespace ae2f { namespace Ds { namespace Arr {
     /// @tparam NIsTrivial 
     /// Whether [T] is trivial or not. \n
     /// 0 means [T] is not trivial, which means it has a custom constructor - destructor.
-    /// @see ae2f_ds_cAlloc
-    /// @see ae2f_ds_Alloc_cOwn
+    /// @see ae2f_cDsAlloc
+    /// @see ae2f_cDsAllocOwn
     /// @see ae2f::Ds::Alloc::rOwner
     template<typename T, bool NIsTrivial>
     struct __Owner {};

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Ds)
+project(Ds VERSION 1.7)
 enable_testing()
 if(NOT TARGET ${PROJECT_NAME})
 add_subdirectory(mod/ae2f/err)
@@ -14,11 +14,15 @@ add_library(
 
     "include/ae2f/Ds/Alloc.h"
     "include/ae2f/Ds/Alloc.hpp"
+    "include/ae2f/Ds/Alloc/Err.h"
     "src/Alloc.c"
     "src/Alloc/Linear.c"
 
     "include/ae2f/Ds/Arr.h"
     "include/ae2f/Ds/Arr.hpp"
+    "include/ae2f/Ds/Arr/Err.h"
+    "include/ae2f/Ds/Arr/Defs.hpp"
+    "include/ae2f/Ds/Arr/Pack.hpp"
     "src/Arr.c"
 )
 
