@@ -5,7 +5,7 @@
 ae2f_SHAREDEXPORT ae2f_err_t ae2f_cDsArrBSearch_imp(
 	const struct ae2f_cDsAlloc* arr,
 	const void* wanted,
-	const ae2f_fpDsArrElCmp_t fpElCmp,
+	const ae2f_fpCmp_t fpElCmp,
 	size_t* out,
 	size_t _elsize
 ) {
@@ -42,13 +42,13 @@ ae2f_SHAREDEXPORT ae2f_err_t ae2f_cDsArrBSearch_imp(
 			memdump(err);
 		}
 
-		ae2f_DsArrCmpRet_t got = fpElCmp(el, wanted);
+		ae2f_CmpFunRet_t got = fpElCmp(el, wanted);
 
-		if (got == ae2f_eDsArrCmpRet_EQUAL) {
+		if (got == ae2f_CmpFunRet_EQUAL) {
 			out[0] = idx;
 			memdump(ae2f_errGlob_OK);
 		}
-		else if (got > ae2f_eDsArrCmpRet_EQUAL) {
+		else if (got > ae2f_CmpFunRet_EQUAL) {
 			arr_r = idx - 1;
 		}
 		else {
@@ -94,7 +94,7 @@ static ae2f_err_t imp_ae2f_swap(
 static ae2f_err_t imp_ae2f_partition(
 	struct ae2f_cDsAlloc* arr,
 	size_t elsize,
-	const ae2f_fpDsArrElCmp_t fpElCmp,
+	const ae2f_fpCmp_t fpElCmp,
 	void* tempel,
 	void* pivot,
 	size_t* idx_buff,
@@ -115,7 +115,7 @@ static ae2f_err_t imp_ae2f_partition(
 		if ((err = __Read(j, tempel)))
 			return err;
 
-		if (fpElCmp(tempel, pivot) <= ae2f_eDsArrCmpRet_EQUAL) {
+		if (fpElCmp(tempel, pivot) <= ae2f_CmpFunRet_EQUAL) {
 			i++; // i, j
 			if ((err = imp_ae2f_swap(arr, elsize, pivot, tempel, i, j)))
 				return err;
@@ -137,7 +137,7 @@ static ae2f_err_t imp_ae2f_partition(
 struct __ {
 	struct ae2f_cDsAlloc* arr;
 	size_t elsize;
-	const ae2f_fpDsArrElCmp_t fpElCmp;
+	const ae2f_fpCmp_t fpElCmp;
 	void* tempel;
 	void* pivot;
 	size_t idx_low;
@@ -172,7 +172,7 @@ static ae2f_err_t imp_ae2f_Qsort(
 
 ae2f_SHAREDEXPORT ae2f_err_t ae2f_cDsArrQSort_imp(
 	struct ae2f_cDsAlloc* arr,
-	const ae2f_fpDsArrElCmp_t fpElCmp,
+	const ae2f_fpCmp_t fpElCmp,
 	size_t _elsize
 ) {
 	if (!fpElCmp) return ae2f_errGlob_IMP_NOT_FOUND;

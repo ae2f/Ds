@@ -7,33 +7,6 @@
 #include "Arr/Err.h"
 
 /// @brief 
-/// A predefined returning data type for @ref ae2f_fpDsArrElCmp_t.
-/// @see ae2f_eDsArrCmpRet_EQUAL
-/// @see ae2f_eDsArrCmpRet_RISLESSER
-/// @see ae2f_eDsArrCmpRet_LISLESSER
-typedef int ae2f_DsArrCmpRet_t;
-
-/// @brief
-/// It is an api for following approximate pseudo code.
-/// ```c
-/// *l - *r
-/// ```
-/// @see ae2f_DsArrCmpRet_t
-typedef ae2f_DsArrCmpRet_t(*ae2f_fpDsArrElCmp_t)(const void* l, const void* r);
-
-/// @brief they are same
-/// @see ae2f_DsArrCmpRet_t 
-#define ae2f_eDsArrCmpRet_EQUAL		0
-
-/// @brief right is lesser
-/// @see ae2f_DsArrCmpRet_t
-#define ae2f_eDsArrCmpRet_RISLESSER	1
-
-/// @brief left is lesser
-/// @see ae2f_DsArrCmpRet_t
-#define ae2f_eDsArrCmpRet_LISLESSER	-1
-
-/// @brief 
 /// Finds the element [wanted] via binary search.
 /// @param arr 
 /// Array to see.
@@ -61,7 +34,7 @@ typedef ae2f_DsArrCmpRet_t(*ae2f_fpDsArrElCmp_t)(const void* l, const void* r);
 ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrBSearch_imp(
 	const ae2f_struct ae2f_cDsAlloc* arr,
 	const void* wanted,
-	const ae2f_fpDsArrElCmp_t fpElCmp,
+	const ae2f_fpCmp_t fpElCmp,
 	size_t* out,
 	size_t elsize
 );
@@ -94,7 +67,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrBSearch_imp(
 /// @see ae2f_cDsAllocRefGetSize
 /// @see ae2f_cDsAllocRefGets
 /// @see ae2f_cDsArrBSearch_imp
-#define ae2f_cDsArrBSearch(arr, wanted, fpElCmp, retidx, elw) ae2f_cDsArrBSearch_imp(arr, wanted, ae2f_reinterpret_cast(ae2f_fpDsArrElCmp_t, fpElCmp), retidx, elw)
+#define ae2f_cDsArrBSearch(arr, wanted, fpElCmp, retidx, elw) ae2f_cDsArrBSearch_imp(arr, wanted, ae2f_reinterpret_cast(ae2f_fpCmp_t, fpElCmp), retidx, elw)
 
 /// @brief 
 /// Order the arr via quick sort.
@@ -117,7 +90,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrBSearch_imp(
 /// @see ae2f_cDsAllocRefPuts
 ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrQSort_imp(
 	ae2f_struct ae2f_cDsAlloc* arr,
-	const ae2f_fpDsArrElCmp_t fpElCmp,
+	const ae2f_fpCmp_t fpElCmp,
 	size_t elsize
 );
 
@@ -141,7 +114,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrQSort_imp(
 /// @see ae2f_cDsAllocRefGets
 /// @see ae2f_cDsAllocRefPuts
 /// @see ae2f_cDsArrQSort_imp
-#define ae2f_cDsArrQSort(arr, fpElCmp, elw) ae2f_cDsArrQSort_imp(arr, ae2f_reinterpret_cast(ae2f_fpDsArrElCmp_t, fpElCmp), elw)
+#define ae2f_cDsArrQSort(arr, fpElCmp, elw) ae2f_cDsArrQSort_imp(arr, ae2f_reinterpret_cast(ae2f_fpCmp_t, fpElCmp), elw)
 
 #include <ae2f/Pack/End.h>
 

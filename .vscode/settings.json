@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "alloc.h": "c",
-        "cast.h": "c",
-        "beg.h": "c",
-        "random": "cpp"
-    }
-}
