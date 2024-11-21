@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Ds)
+project(Ds VERSION 1.7)
 enable_testing()
 if(NOT TARGET ${PROJECT_NAME})
 add_subdirectory(mod/ae2f/err)

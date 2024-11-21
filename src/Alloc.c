@@ -1,8 +1,6 @@
 #include <ae2f/Ds/Alloc.h>
 #include <stdlib.h>
 
-
-
 ae2f_SHAREDEXPORT ae2f_extern ae2f_err_t ae2f_ds_Alloc_cOwn_Init(
 	ae2f_struct ae2f_ds_Alloc_cOwn* This, 
 	const ae2f_struct ae2f_ds_vAlloc* imp
