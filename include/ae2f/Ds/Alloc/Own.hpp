@@ -105,7 +105,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
 
         /// @brief 
         /// Frees the memory of class. \n
-        /// Error code will be stored in @ref ae2f_errGlob_Last.
+        /// Error code will be stored in @ref ae2f_errLast.
         /// @param This The instance of a class where the memory to free is located.
         /// @return @ref ae2f_errGlob_OK
         /// @exception \
@@ -113,9 +113,9 @@ namespace ae2f { namespace Ds { namespace Alloc {
         /// @see ae2f_ds_Alloc_cOwn
         /// @see ae2f_ds_Alloc_fpDel_t
         /// @see ae2f_ds_Alloc_cOwn_Del
-        /// @see ae2f_errGlob_Last
+        /// @see ae2f_errLast
         inline ~xrOwner() noexcept {
-            ae2f_errGlob_Last |= (ae2f_ds_Alloc_cOwn_Del(this));
+            ae2f_errLast |= (ae2f_ds_Alloc_cOwn_Del(this));
         }
 
         /// @brief 
@@ -161,7 +161,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
         ///	Injects the function pointers automatically.
         /// @param perr 
         /// An address where state number be stored. \n
-        /// Setting it 0 will cause a status number stored in @ref ae2f_errGlob_Last.
+        /// Setting it 0 will cause a status number stored in @ref ae2f_errLast.
         /// @param imp
         /// Class Implementations
         /// @return @ref ae2f_errGlob_OK
@@ -173,7 +173,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
             ae2f_err_t* perr,
             const ae2f_ds_vAlloc* imp
         ) noexcept : rOwner() {
-            perr = perr ? perr : &ae2f_errGlob_Last;
+            perr = perr ? perr : &ae2f_errLast;
             *perr |= ae2f_ds_Alloc_cOwn_Init(this, imp);
         }
     };
@@ -194,7 +194,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
         ///	Injects the function pointers automatically.
         /// @param perr 
         /// An address where state number be stored. \n
-        /// Setting it 0 will cause a status number stored in @ref ae2f_errGlob_Last.
+        /// Setting it 0 will cause a status number stored in @ref ae2f_errLast.
         /// @param imp
         /// Class Implementations
         /// @return @ref ae2f_errGlob_OK

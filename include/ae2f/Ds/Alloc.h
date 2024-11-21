@@ -52,7 +52,7 @@ struct ae2f_ds_cAlloc {
 /// @returns
 /// The Function Pointer with the given name.
 /// @exception 0: [This] was nullptr.
-#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_Cmp_TakeMem(ae2f_Cmp_TakeMem(This, v, 0), Name, 0)
+#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_CmpGetMem(ae2f_CmpGetMem(This, v, 0), Name, 0)
 
 /// @warning
 /// Notice that it can't handle the function without parameters. \n

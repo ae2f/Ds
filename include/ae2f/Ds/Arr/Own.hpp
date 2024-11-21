@@ -41,7 +41,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f_ds_Alloc_cOwn_Read
         /// @see ae2f::Ds::Alloc::xrOwner::Read
         inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = 0) const noexcept {
-            if(!perr) perr = &ae2f_errGlob_Last;
+            if(!perr) perr = &ae2f_errLast;
 
             T b[1];
 
@@ -162,7 +162,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f_ds_Alloc_cOwn_Read
         /// @see ae2f::Ds::Alloc::xrOwner::Read
         inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = 0) const noexcept {
-            if(!perr) perr = &ae2f_errGlob_Last;
+            if(!perr) perr = &ae2f_errLast;
 
             typename _f::El_t b[1];
 
@@ -266,12 +266,12 @@ namespace ae2f { namespace Ds { namespace Arr {
         
         inline ~__Owner() {
             size_t a[2] = {0, 0};
-            ae2f_errGlob_Last |= this->Length(a, a+1);
+            ae2f_errLast |= this->Length(a, a+1);
 
             a[0] = (a[1] * a[0]) / this->ElSize;
 
             for(size_t i = 0; i < a[0]; i++) {
-                Pack<T> t = this->Read(i, &ae2f_errGlob_Last);
+                Pack<T> t = this->Read(i, &ae2f_errLast);
                 if(t.isvalid()) t.Obj.~T();
             }
         }

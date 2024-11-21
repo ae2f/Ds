@@ -38,8 +38,8 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f_ds_Alloc_fpRead_t
         /// @see ae2f_ds_Alloc_cRef_Read
         /// @see ae2f::Ds::Alloc::cRefer::Read
-        inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = &ae2f_errGlob_Last) const noexcept {
-            if(!perr) perr = &ae2f_errGlob_Last;
+        inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = &ae2f_errLast) const noexcept {
+            if(!perr) perr = &ae2f_errLast;
 
             T b[1];
 
@@ -138,7 +138,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f_ds_Alloc_cRef_Read
         /// @see ae2f::Ds::Alloc::cRefer::Read
         inline const typename _f::El_t Read(size_t index, ae2f_err_t* perr = 0) const noexcept {
-            if(!perr) perr = &ae2f_errGlob_Last;
+            if(!perr) perr = &ae2f_errLast;
 
             typename _f::El_t b[1];
 

@@ -76,7 +76,7 @@ typedef ae2f_err_t(*ae2f_ds_Alloc_fpWrite_t)(
 /// @warning
 /// You need to suggest that returning value of this does not own the memory.
 /// @see ae2f_ds_Alloc_cRef
-#define ae2f_ds_Alloc_cRef_Mk(This) ae2f_record_make(ae2f_struct ae2f_ds_Alloc_cRef, (This)->data, (This)->v)
+#define ae2f_ds_Alloc_cRef_Mk(This) ae2f_RecordMk(ae2f_struct ae2f_ds_Alloc_cRef, (This)->data, (This)->v)
 
 
 #pragma region Methods
