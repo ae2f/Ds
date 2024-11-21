@@ -1,12 +1,12 @@
 #include <ae2f/Ds/Alloc.h>
 #include <stdlib.h>
 
-ae2f_SHAREDEXPORT ae2f_extern ae2f_err_t ae2f_cDsAllocOwn_Init(
+ae2f_SHAREDEXPORT ae2f_extern ae2f_err_t ae2f_cDsAllocOwnInit(
 	ae2f_struct ae2f_cDsAllocOwn* This, 
 	const ae2f_struct ae2f_vDsAlloc* imp
 ) {
 	if (!(This)) return ae2f_errGlob_PTR_IS_NULL;
-	if (!imp) return ae2f_ds_Alloc_Err_FPIMPNULL;
+	if (!imp) return ae2f_errDsAlloc_FUNPTR_NULL;
 
 	This->data = 0;
 	This->v = imp;

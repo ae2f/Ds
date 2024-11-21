@@ -9,7 +9,7 @@ static int cmp(const int* a, const int* b) {
 /// search test 
 static int Test0() {
     struct ae2f_cDsAllocOwn a;
-    ae2f_cDsAllocOwn_InitAuto(&a);
+    ae2f_cDsAllocOwnInitAuto(&a);
     ae2f_cDsAllocOwnReConfig(&a, 5, sizeof(int));
 
     for(int i = 0; i < 5; i++) {
@@ -20,7 +20,7 @@ static int Test0() {
     int i = 3;
     size_t eli;
     // second
-    int err = ae2f_ds_Arr_BSearch(&a, &i, cmp, &eli, sizeof(int));
+    int err = ae2f_cDsArrBSearch(&a, &i, cmp, &eli, sizeof(int));
     ae2f_cDsAllocRefGets(&a, eli * sizeof(int), &i, sizeof(int));
     if(i != 3) return 1;
     return 0;
@@ -29,7 +29,7 @@ static int Test0() {
 /// search test 
 static int Test1() {
     struct ae2f_cDsAllocOwn a;
-    ae2f_cDsAllocOwn_InitAuto(&a);
+    ae2f_cDsAllocOwnInitAuto(&a);
     ae2f_cDsAllocOwnReConfig(&a, 5, sizeof(int));
 
     for(int i = 0; i < 5; i++) {
@@ -38,7 +38,7 @@ static int Test1() {
     }
 
     // second
-    int err = ae2f_ds_Arr_QSort(&a, cmp, sizeof(int));
+    int err = ae2f_cDsArrQSort(&a, cmp, sizeof(int));
 
     for(int i = 0; i < 5; i++) {
         int j;

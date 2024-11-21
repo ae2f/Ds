@@ -1,7 +1,5 @@
 /// @file
 /// Helper header for ae2f/Ds/Arr.h
-/// @warning 
-/// This file has lack of definitions.
 
 /// @brief
 /// # It is not a critical error.
@@ -11,4 +9,4 @@
 /// @return 
 /// @ref ae2f_errGlob_NFOUND \n
 /// @ref ae2f_errGlob_DONE_HOWEV
-#define ae2f_ds_Arr_NOT_FOUND ae2f_static_cast(ae2f_err_t, 0b1100000)
+#define ae2f_ds_Arr_NOT_FOUND 0b1100000

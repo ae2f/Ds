@@ -14,10 +14,10 @@ static int Test0x0() {
     struct ae2f_cDsAllocOwn a;
     size_t sizeBuff;
 
-    TEST_VAL(code, ae2f_cDsAllocOwn_InitAuto(&a));
+    TEST_VAL(code, ae2f_cDsAllocOwnInitAuto(&a));
     TEST_VAL(code, ae2f_cDsAllocOwnReSize(&a, 34));
 
-    TEST_IF(code, ae2f_cDsAllocOwnGetSize(&a, &sizeBuff, 0) & ~ae2f_ds_Alloc_Err_NCOPIED)
+    TEST_IF(code, ae2f_cDsAllocOwnGetSize(&a, &sizeBuff, 0) & ~ae2f_errDsAlloc_NCOPIED)
     goto __END;
 
     if(sizeBuff != 34) {
@@ -35,7 +35,7 @@ static int Test0x1() {
     int code = 0; int data = 45;
     struct ae2f_cDsAllocOwn a;
     size_t sizeBuff;
-    TEST_VAL(code, ae2f_cDsAllocOwn_InitAuto(&a));
+    TEST_VAL(code, ae2f_cDsAllocOwnInitAuto(&a));
     TEST_VAL(code, ae2f_cDsAllocOwnReSize(&a, sizeof(int)));
     TEST_IF(code, ae2f_cDsAllocOwnPuts(&a, 0, &data, sizeof(int)))
         goto END;
@@ -59,7 +59,7 @@ static int Test0x2() {
     int code = 0; int data = 45;
     struct ae2f_cDsAllocOwn a;
     size_t sizeBuff;
-    TEST_VAL(code, ae2f_cDsAllocOwn_InitAuto(&a));
+    TEST_VAL(code, ae2f_cDsAllocOwnInitAuto(&a));
     TEST_VAL(code, ae2f_cDsAllocOwnReSize(&a, sizeof(int)));
     TEST_IF(code, ae2f_cDsAllocOwnPuts(&a, 0, &data, sizeof(int))) {
         goto END;
@@ -85,8 +85,8 @@ static int Test0x3() {
     int code = 0; int data = 45;
     struct ae2f_cDsAllocOwn a, b;
     size_t sizeBuff;
-    TEST_VAL(code, ae2f_cDsAllocOwn_InitAuto(&a));
-    TEST_VAL(code, ae2f_cDsAllocOwn_InitAuto(&b));
+    TEST_VAL(code, ae2f_cDsAllocOwnInitAuto(&a));
+    TEST_VAL(code, ae2f_cDsAllocOwnInitAuto(&b));
 
     TEST_VAL(code, ae2f_cDsAllocOwnReSize(&a, sizeof(int)));
 
@@ -117,7 +117,7 @@ static int Test0x3() {
 // Error
 static int Test0x4() {
     struct ae2f_cDsAllocOwn a;
-    if(ae2f_cDsAllocOwn_Init(&a, 0))
+    if(ae2f_cDsAllocOwnInit(&a, 0))
     return ae2f_errGlob_OK;
     return ae2f_errGlob_NFOUND;
 }

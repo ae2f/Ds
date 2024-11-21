@@ -1,7 +1,5 @@
 /// @file
 /// Helper header for ae2f/Ds/Arr.hpp
-/// @warning 
-/// This file has lack of definitions.
 
 namespace ae2f { namespace Ds { namespace Arr {
 

@@ -14,11 +14,15 @@ add_library(
 
     "include/ae2f/Ds/Alloc.h"
     "include/ae2f/Ds/Alloc.hpp"
+    "include/ae2f/Ds/Alloc/Err.h"
     "src/Alloc.c"
     "src/Alloc/Linear.c"
 
     "include/ae2f/Ds/Arr.h"
     "include/ae2f/Ds/Arr.hpp"
+    "include/ae2f/Ds/Arr/Err.h"
+    "include/ae2f/Ds/Arr/Defs.hpp"
+    "include/ae2f/Ds/Arr/Pack.hpp"
     "src/Arr.c"
 )
 
