@@ -186,7 +186,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f::Ds::Alloc::cRefer::Write
         template<typename... Args>
         inline ae2f_err_t Write(size_t idx, Args&& ...args) noexcept {
-            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+            if(!_ae2f_DsAllocFndFunc(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
                 return ae2f_errGlob_IMP_NOT_FOUND;
             }
 
@@ -225,7 +225,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f_cDsAllocRefPuts
         /// @see ae2f::Ds::Alloc::cRefer::Write
         inline ae2f_err_t Write(size_t idx) noexcept {
-            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+            if(!_ae2f_DsAllocFndFunc(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
                 return ae2f_errGlob_IMP_NOT_FOUND;
             }
 
@@ -470,7 +470,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f::Ds::Alloc::xrOwner::Write
         template<typename... Args>
         inline ae2f_err_t Write(size_t idx, Args&& ...args) noexcept {
-            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+            if(!_ae2f_DsAllocFndFunc(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
                 return ae2f_errGlob_IMP_NOT_FOUND;
             }
 
@@ -510,7 +510,7 @@ namespace ae2f { namespace Ds { namespace Arr {
         /// @see ae2f_cDsAllocOwnPuts
         /// @see ae2f::Ds::Alloc::xrOwner::Write
         inline ae2f_err_t Write(size_t idx) noexcept {
-            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+            if(!_ae2f_DsAllocFndFunc(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
                 return ae2f_errGlob_IMP_NOT_FOUND;
             }
 

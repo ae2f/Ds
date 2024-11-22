@@ -384,7 +384,7 @@ struct ae2f_cDsAlloc {
 /// @returns
 /// The Function Pointer with the given name.
 /// @exception 0: [This] was nullptr.
-#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_CmpGetMem(ae2f_CmpGetMem(This, v, 0), Name, 0)
+#define _ae2f_DsAllocFndFunc(This, Name) ae2f_CmpGetMem(ae2f_CmpGetMem(This, v, 0), Name, 0)
 
 /// @warning
 /// Notice that it can't handle the function without parameters. \n
@@ -395,8 +395,8 @@ struct ae2f_cDsAlloc {
 /// @exception \
 /// @ref ae2f_errGlob_IMP_NOT_FOUND
 /// @see ae2f_cDsAlloc
-/// @see _ae2f_ds_Alloc_FndFun
-#define _ae2f_DsAllocCall(This, Name, ...) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This, __VA_ARGS__) : ae2f_errGlob_IMP_NOT_FOUND)
+/// @see _ae2f_DsAllocFndFunc
+#define _ae2f_DsAllocCall(This, Name, ...) (_ae2f_DsAllocFndFunc(This, Name) ? _ae2f_DsAllocFndFunc(This, Name)(This, __VA_ARGS__) : ae2f_errGlob_IMP_NOT_FOUND)
 
 /// @warning
 /// Notice that it can't handle the function with parameters. \n
@@ -406,8 +406,8 @@ struct ae2f_cDsAlloc {
 /// @exception \
 /// @ref ae2f_errGlob_IMP_NOT_FOUND
 /// @see ae2f_cDsAlloc
-/// @see _ae2f_ds_Alloc_FndFun
-#define _ae2f_DsAllocCallVoid(This, Name) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This) : ae2f_errGlob_IMP_NOT_FOUND)
+/// @see _ae2f_DsAllocFndFunc
+#define _ae2f_DsAllocCallVoid(This, Name) (_ae2f_DsAllocFndFunc(This, Name) ? _ae2f_DsAllocFndFunc(This, Name)(This) : ae2f_errGlob_IMP_NOT_FOUND)
 
 #include <ae2f/Pack/End.h>
 
