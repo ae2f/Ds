@@ -4,8 +4,3 @@
 
 #include <ae2f/Call.h>
 #include <ae2f/Cast.h>
-
-ae2f_extern int AllocTest();
-ae2f_extern int xAllocTest();
-ae2f_extern int ArrTest();
-ae2f_extern int xArrTest();

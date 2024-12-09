@@ -4,7 +4,7 @@
 // scrafolding
 
 #include <ae2f/Ds/Alloc.h>
-#include "./test.h"
+#include "../test.h"
 
  
 #pragma region Test Alloc
@@ -124,7 +124,7 @@ static int Test0x4() {
 
 #pragma endregion
 
-int AllocTest() {
+int main() {
     int ErrCode;
 
     TEST(Test0x0, ErrCode);

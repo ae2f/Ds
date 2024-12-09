@@ -1,5 +1,5 @@
 #include <ae2f/Ds/Arr.h>
-#include "test.h"
+#include "../test.h"
 #include <stdio.h>
 
 static int cmp(const int* a, const int* b) {
@@ -48,7 +48,7 @@ static int Test1() {
     return 0;
 }
 
-int ArrTest() {
+int main() {
     int code;
     TEST(Test0, code);
     TEST(Test1, code);

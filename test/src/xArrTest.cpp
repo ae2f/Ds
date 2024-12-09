@@ -2,7 +2,7 @@
 #include <iostream>
 #include <ae2f/Cast.h>
 
-#include "test.h"
+#include "../test.h"
 
 struct a {
     static int _d;
@@ -81,7 +81,7 @@ static int Test2() {
 }
 
 
-extern "C" int xArrTest() {
+int main() {
     int errcode;
     TEST(Test0, errcode);
     TEST(Test1, errcode);

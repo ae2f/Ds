@@ -1,5 +1,5 @@
 #include <ae2f/Ds/Alloc.hpp>
-#include "test.h"
+#include "../test.h"
 
 enum globalErr_Byte1 {
     ALL_GOOD,
@@ -126,7 +126,7 @@ static int Test0x4() {
 
 #pragma endregion
 
-extern "C" int xAllocTest() {
+int main() {
     int ErrCode;
 
     TEST(Test0x0, ErrCode);

@@ -10,7 +10,7 @@ ae2f_SHAREDEXPORT ae2f_extern ae2f_err_t ae2f_cDsAllocOwnInit(
 
 	This->data = 0;
 	This->v = imp;
-
+	
 	return ae2f_errGlob_OK;
 }
 
