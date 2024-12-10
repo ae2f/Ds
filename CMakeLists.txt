@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Ds VERSION 1.8.2)
+project(Ds VERSION 1.9.2)
 enable_testing()
 if(NOT TARGET ${PROJECT_NAME})
 add_subdirectory(mod/ae2f/err)
@@ -7,10 +7,10 @@ add_subdirectory(mod/ae2f/err)
 # Namespace Package
 include(GNUInstallDirs)
 
-ae2f_CoreLibProjTent(
+ae2f_CoreLibTent(
     ${PROJECT_NAME}
     ${ae2f_LIBPREFIX}
-    include
+    include ae2f
 
     "include/ae2f/Ds/Alloc.h"
     "include/ae2f/Ds/Alloc.hpp"

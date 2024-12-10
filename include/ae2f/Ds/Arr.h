@@ -37,7 +37,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrBSearch_imp(
 	const ae2f_fpCmp_t fpElCmp,
 	size_t* out,
 	size_t elsize
-);
+) noexcept;
 
 /// @brief 
 /// Finds the element [wanted] via binary search.
@@ -92,7 +92,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsArrQSort_imp(
 	ae2f_struct ae2f_cDsAlloc* arr,
 	const ae2f_fpCmp_t fpElCmp,
 	size_t elsize
-);
+) noexcept;
 
 /// @brief 
 /// Order the arr via quick sort.

@@ -199,7 +199,7 @@ typedef ae2f_err_t(*ae2f_fpDsAllocReConfig_t)(
 ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsAllocOwnInit(
 	ae2f_struct ae2f_cDsAllocOwn* This, 
 	const ae2f_struct ae2f_vDsAlloc* imp
-);
+) noexcept;
 
 /// @brief 
 ///	Initialises the pointer. \n
@@ -233,7 +233,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsAllocOwnInit(
 ae2f_SHAREDCALL ae2f_extern ae2f_err_t ae2f_cDsAllocOwnCpy_imp(
 	ae2f_struct ae2f_cDsAllocOwn* This, 
 	const ae2f_struct ae2f_cDsAlloc* Source
-);
+) noexcept;
 
 /// @brief 
 /// Allocates the memory.
