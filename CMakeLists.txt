@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
-project(Ds VERSION 1.9.2)
+project(Ds VERSION 1.10.2)
 enable_testing()
+include(cmake/Core.cmake)
+
 if(NOT TARGET ${PROJECT_NAME})
+
+ae2f_CoreLibFetch(ae2f err Rel-v3.9.7)
 
 # Namespace Package
 include(GNUInstallDirs)

@@ -1,10 +1,10 @@
 # Ds
-- Rel-v1.9.2
+- Rel-v1.10.2
 > C/C++ Datastructures Interface/Example Implementations.
 
 # See Also
+- ae2f::Core-Template
 - ae2f::Core
-- ae2f::Core-Templat
 - ae2f::err
 
 # Dependency
