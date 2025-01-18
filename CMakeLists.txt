@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Ds VERSION 1.11.2)
+project(Ds VERSION 1.11.3)
 enable_testing()
 include(cmake/Core.cmake)
 
