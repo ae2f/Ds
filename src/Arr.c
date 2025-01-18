@@ -107,10 +107,8 @@ static ae2f_err_t imp_ae2f_partition(
 		return err;
 
 	size_t i = idx_low - 1;
-	printf("i %d\n", i);
 
 	for (size_t j = idx_low; j < idx_high; j++) {
-		printf("j %d\n", j);
 
 		if ((err = __Read(j, tempel)))
 			return err;
@@ -148,8 +146,6 @@ static ae2f_err_t imp_ae2f_Qsort(
 	struct __* prm
 ) {
 	ae2f_err_t err;
-
-	printf("idx: %d %d\n", prm->idx_low, prm->idx_high);
 
 	if (prm->idx_low >= prm->idx_high) {
 		return ae2f_errGlob_OK;
